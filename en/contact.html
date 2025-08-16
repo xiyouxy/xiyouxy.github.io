@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | xiyouxy.xyz</title>
+  <meta name="description" content="Page-specific description" />
+  <meta name="keywords" content="Page-specific keywords" />
+  <link rel="shortcut icon" href="/static/images/favicons/favicon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/static/images/favicons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="/static/images/favicons/apple-touch-icon-precomposed.png" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+  <link rel="stylesheet" href="/static/css/screen.min.css" />
+  <link rel="stylesheet" href="/static/css/custom.min.css" />
+</head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperation, innovation and mutual benefit</span>
+      </div>
+      <nav class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link" href="index.html">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="buying.html">Buying</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="discovery.html">Discovery</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- $Contact section -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <h2 class="contact__title">Contact us</h2>
+      <p class="contact__descr"></p>
+
+      <form
+        class="contact__form"
+        id="contactForm"
+        action="https://formspree.io/f/myzpopvg"
+        method="POST"
+      >
+        <input
+          class="contact__form-input"
+          type="text"
+          name="name"
+          placeholder="Your name"
+          required
+        />
+        <input
+          class="contact__form-input"
+          type="email"
+          name="email"
+          placeholder="Your email"
+          required
+        />
+
+        <select class="contact__form-select" name="service" required>
+          <option value="">Select a service</option>
+          <option value="handmade">Handmade</option>
+          <option value="workshops">Workshops</option>
+          <option value="design">Web and Graphic design</option>
+          <option value="buying">Buying</option>
+          <option value="other">Other</option>
+        </select>
+
+        <textarea
+          class="contact__form-tarea"
+          name="message"
+          placeholder="Your message"
+          required
+        ></textarea>
+
+        <button class="contact__form-submit" type="submit">SUBMIT</button>
+
+        <p
+          id="formStatus"
+          style="color: orange; font-weight: bold; display: none;"
+        >
+          提交成功，谢谢！
+        </p>
+      </form>
+
+      <script>
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const status = document.getElementById("formStatus");
+
+            try {
+              const data = new FormData(form);
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { Accept: "application/json" },
+              });
+
+              if (response.ok) {
+                form.reset();
+                status.style.display = "block";
+                status.textContent = "提交成功，谢谢！";
+                status.style.color = "orange";
+              } else {
+                status.style.display = "block";
+                status.textContent = "提交失败，请稍后再试。";
+                status.style.color = "red";
+              }
+            } catch (error) {
+              status.style.display = "block";
+              status.textContent = "网络错误，请稍后重试。";
+              status.style.color = "red";
+            }
+          });
+      </script>
+
+      <div class="contact__card vcard">
+        <div class="contact__card-item">
+          <div>Edifici Tabaris</div>
+            <div>Av. Balneari 3, Coma-ruga</div>
+          <div>helena.heli@hotmail.com</div>
+          <div>
+            <img src="/static/images/whatapp.png" alt="whatsapp" />
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>

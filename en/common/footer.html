@@ -1,0 +1,15 @@
+<footer class="page-footer">
+  <div class="page-footer__inner">
+    <span class="page-footer__copyright">
+      &copy;<span id="currentYear"></span> xiyouxy.xyz
+    </span>
+    <a class="page-footer__gotop" href="#top">Go to top</a>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  });
+</script>
+<script src="/static/js/body.min.js"></script>

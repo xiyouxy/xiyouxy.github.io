@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="common-head"></head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperation, innovation and mutual benefit</span>
+      </div>
+      <nav class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link" href="index.html">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#buying">Buying</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="discovery.html">Discovery</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- $buying section -->
+  <section class="buying" id="buying">
+    <div class="buying__inner">
+<h2>Buying</h2>
+<p></p>
+</div>
+  </section>
+
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+<script>
+  fetch('common/head.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-head').innerHTML = html);
+
+  fetch('common/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-header').innerHTML = html);
+
+  fetch('common/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-footer').innerHTML = html);
+</script>
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>

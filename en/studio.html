@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="common-head"></head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperation, innovation and mutual benefit</span>
+      </div>
+      <nav class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link" href="index.html">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#portfolio">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="buying.html">Buying</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="discovery.html">Discovery</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ <!-- $Portfolio section -->
+<section class="portfolio js-portfolio" id="portfolio">
+        <div class="portfolio__inner">
+        <nav class="portfolio__filter"><ul>
+        <li class="portfolio__filter-btn js-filter" data-filter="handmade">Handmade</li>
+        <li class="portfolio__filter-btn js-filter" data-filter="workshops">Workshops</li>
+        <li class="portfolio__filter-btn js-filter" data-filter="design">Web and Graphic design</li>
+        </ul></nav>
+            
+        <ul class="portfolio__content">
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_t_1.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_t_3.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_top_4.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+        
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_top_1.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_j_1.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+        
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_b_2.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+        
+        <li class="portfolio__item js-item" data-cat="all workshops"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/mid-autumn.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Festival del Medio Otoño</span><span class="portfolio__item-cat">Workshops</span></div></a></li>
+      
+      
+        <li class="portfolio__item js-item" data-cat="all design"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/design/logo_xiyouxy.xyz.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Xiyouxy.xyz</span><span class="portfolio__item-cat">Web and Graphic design</span></div></a></li>
+      
+      
+      </ul>
+
+<h2>Studio</h2>
+<p></p>
+</div>
+  </section>
+
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+<script>
+  fetch('common/head.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-head').innerHTML = html);
+
+  fetch('common/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-header').innerHTML = html);
+
+  fetch('common/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-footer').innerHTML = html);
+</script>
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>

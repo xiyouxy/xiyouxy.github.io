@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="common-head"></head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperation, innovation and mutual benefit</span>
+      </div>
+      <nav class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link" href="index.html">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="buying.html">Buying</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#promo">Discovery</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- $Promo section -->
+  <section id="promo">
+<div class="promo__inner">
+
+<style>
+.slider {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 1rem;
+  max-width: 90%;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+button:hover { background: rgba(0,0,0,0.8); }
+
+/* 手机端优化 */
+@media (max-width: 768px) {
+  .caption {
+    font-size: 0.9rem;
+    bottom: 5%;
+  }
+  button.prev, button.next {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+}
+</style>
+
+<div class="slider">
+  <div class="slides">
+    <div class="slide">
+      <img src="/static/images/discovery/guizhou_1.jpg" alt="Slide 1">
+      <div class="caption">Guizhou</div>
+    </div>
+    <div class="slide">
+      <img src="/static/images/discovery/lasa_1.jpg" alt="Slide 2">
+      <div class="caption">Lasa</div>
+    </div>
+    <div class="slide">
+      <img src="/static/images/discovery/shandong_1.jpg" alt="Slide 3">
+      <div class="caption">Shandong</div>
+    </div>
+    
+    <div class="slide">
+      <img src="/static/images/discovery/sant-salvador_1.jpg" alt="Slide 3">
+      <div class="caption">Sant Salvador</div>
+    </div>
+    
+    <div class="slide">
+      <img src="/static/images/discovery/coma-ruga_1.jpg" alt="Slide 3">
+      <div class="caption">Coma-ruga</div>
+    </div>
+  </div>
+
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+
+<script>
+const slides = document.querySelector('.slides');
+const slide = document.querySelectorAll('.slide');
+let currentIndex = 0;
+let autoSlide;
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % slide.length;
+  updateSlide();
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + slide.length) % slide.length;
+  updateSlide();
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+  showNext();
+  resetAutoSlide();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  showPrev();
+  resetAutoSlide();
+});
+
+function startAutoSlide() {
+  autoSlide = setInterval(showNext, 4000); // 每 4 秒切换一次
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  startAutoSlide();
+}
+
+startAutoSlide();
+</script>
+
+
+<h2>Discovery</h2>
+<p></p>
+</div>
+  </section>
+
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+<script>
+  fetch('common/head.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-head').innerHTML = html);
+
+  fetch('common/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-header').innerHTML = html);
+
+  fetch('common/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-footer').innerHTML = html);
+</script>
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>

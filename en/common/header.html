@@ -1,0 +1,29 @@
+<header class="page-header js-header">
+  <div class="page-header__inner">
+    <div class="page-header__logo">
+      <h1>xiyouxy.xyz</h1>
+      &nbsp;<span>Cooperation, Innovation, Mutual Benefit</span>
+    </div>
+    <nav class="page-header__nav js-nav">
+      <ul>
+        <li><a class="page-header__nav-link nav-link" href="index.html">Home</a></li>
+        <li><a class="page-header__nav-link nav-link" href="studio.html">Studio</a></li>
+        <li><a class="page-header__nav-link nav-link" href="buying.html">Buying</a></li>
+        <li><a class="page-header__nav-link nav-link" href="discovery.html">Discovery</a></li>
+        <li><a class="page-header__nav-link nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // 等 header 加载完再执行高亮
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-link").forEach(link => {
+      if (link.getAttribute("href").includes(currentPath)) {
+        link.classList.add("is-active");
+      }
+    });
+  });
+</script>
