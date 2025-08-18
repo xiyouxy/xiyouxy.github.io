@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | xiyouxy.xyz</title>
+  <meta name="description" content="Page-specific description" />
+  <meta name="keywords" content="Page-specific keywords" />
+  <link rel="shortcut icon" href="/static/images/favicons/favicon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/static/images/favicons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="/static/images/favicons/apple-touch-icon-precomposed.png" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+  <link rel="stylesheet" href="/static/css/screen.min.css" />
+  <link rel="stylesheet" href="/static/css/custom.min.css" />
+</head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div style="width: 110px; float: right;">
+      <a class="lan_nav-link" href="/cat/index.html">CA</a> |
+      <a class="lan_nav-link" href="/en/index.html">EN</a> |
+      <a class="lan_nav-link" href="/cn/index.html">CN</a>
+    </div>
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperación, innovación y beneficio mutuo</span>
+      </div>
+      <div class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link" href="index.html">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#">Compras</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="descubre.html">Descubre</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- $buying section -->
+  <section class="buying" id="buying">
+    <div class="buying__inner">
+      <h2 class="buying__title">Compras</h2>
+      <p class="buying__descr">compra online</p>
+
+      <div class="buying__member">
+        <img src="/static/images/buying/aliexpress.png" alt="M" />
+        <div class="buying__member-info">
+          <h3 class="buying__member-name">Aliexpress</h3>
+          <span class="buying__member-role">es.aliexpress.com</span>
+          <p class="buying__member-descr">...</p>
+        </div>
+      </div>
+
+
+      <div class="buying__member">
+        <img src="/static/images/buying/jd.png" alt="M" />
+        <div class="buying__member-info">
+          <h3 class="buying__member-name">JD.com</h3>
+          <span class="buying__member-role">global.jd.com</span>
+          <p class="buying__member-descr">...</p>
+        </div>
+      </div>
+
+      <div class="buying__member">
+        <img src="/static/images/buying/taobao.png" alt="M" />
+        <div class="buying__member-info">
+          <h3 class="buying__member-name">taobao.com</h3>
+          <span class="buying__member-role">world.taobao.com</span>
+          <p class="buying__member-descr">...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>
