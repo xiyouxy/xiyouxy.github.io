@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | xiyouxy.xyz</title>
+  <meta name="description" content="Page-specific description" />
+  <meta name="keywords" content="Page-specific keywords" />
+  <link rel="shortcut icon" href="/static/images/favicons/favicon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/static/images/favicons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="/static/images/favicons/apple-touch-icon-precomposed.png" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+  <link rel="stylesheet" href="/static/css/screen.min.css" />
+  <link rel="stylesheet" href="/static/css/custom.min.css" />
+</head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div style="width: 110px; float: right;">
+      <a class="lan_nav-link" href="/index.html">ES</a> |
+      <a class="lan_nav-link" href="/en/index.html">EN</a> |
+      <a class="lan_nav-link" href="/cn/index.html">CN</a>
+    </div>
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperació, innovació i benefici mutu</span>
+      </div>
+      <div class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="compres.html">Compres</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="descobreix.html">Descobreix</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="contacte.html">Contacte</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <!-- $home section -->
+  <section id="home">
+    <div>
+ </div>
+  </section>
+
+  <!-- $Promo section -->
+  <section id="promo">
+<div class="promo__inner">
+
+<style>
+.slider {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 1rem;
+  max-width: 90%;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+button:hover { background: rgba(0,0,0,0.8); }
+
+/* 手机端优化 */
+@media (max-width: 768px) {
+  .caption {
+    font-size: 0.9rem;
+    bottom: 5%;
+  }
+  button.prev, button.next {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+}
+</style>
+
+<div class="slider">
+  <div class="slides">
+    <div class="slide">
+      <img src="/static/images/discovery/guizhou_1.jpg" alt="Slide 1">
+      <div class="caption">Guizhou</div>
+    </div>
+    <div class="slide">
+      <img src="/static/images/discovery/lasa_1.jpg" alt="Slide 2">
+      <div class="caption">Lasa</div>
+    </div>
+    <div class="slide">
+      <img src="/static/images/discovery/shandong_1.jpg" alt="Slide 3">
+      <div class="caption">Shandong</div>
+    </div>
+    
+    <div class="slide">
+      <img src="/static/images/discovery/sant-salvador_1.jpg" alt="Slide 3">
+      <div class="caption">Sant Salvador</div>
+    </div>
+    
+    <div class="slide">
+      <img src="/static/images/discovery/coma-ruga_1.jpg" alt="Slide 3">
+      <div class="caption">Coma-ruga</div>
+    </div>
+  </div>
+
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+
+<script>
+const slides = document.querySelector('.slides');
+const slide = document.querySelectorAll('.slide');
+let currentIndex = 0;
+let autoSlide;
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % slide.length;
+  updateSlide();
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + slide.length) % slide.length;
+  updateSlide();
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+  showNext();
+  resetAutoSlide();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  showPrev();
+  resetAutoSlide();
+});
+
+function startAutoSlide() {
+  autoSlide = setInterval(showNext, 4000); // 每 4 秒切换一次
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  startAutoSlide();
+}
+
+startAutoSlide();
+</script>
+</div>
+  </section>
+
+  <!-- $Portfolio section -->
+
+  
+
+<section class="portfolio js-portfolio" id="portfolio">
+        <div class="portfolio__inner"><h2 class="portfolio__title">Studio</h2><p class="portfolio__descr"></p>
+        
+        <nav class="portfolio__filter"><ul>
+          <li class="portfolio__filter-btn is-selected js-filter" data-filter="all">Tots</li>
+        <li class="portfolio__filter-btn js-filter" data-filter="handmade">Manualitats</li>
+        <li class="portfolio__filter-btn js-filter" data-filter="workshops">Tallers</li>
+        <li class="portfolio__filter-btn js-filter" data-filter="design">Disseny web i gràfic</li>
+        </ul></nav>
+            
+        <ul class="portfolio__content">
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_t_1.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+     
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_t_3.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_top_4.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+        
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_top_1.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+            
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_j_1.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+        
+        <li class="portfolio__item js-item" data-cat="all handmade"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/img_b_2.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Example title</span><span class="portfolio__item-cat">Handmade</span></div></a></li>
+        
+        <li class="portfolio__item js-item" data-cat="all workshops"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/mid-autumn.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Festival del Medio Otoño</span><span class="portfolio__item-cat">Workshops</span></div></a></li>
+      
+      
+        <li class="portfolio__item js-item" data-cat="all design"><a href="#"><img class="portfolio__item-img js-lazy" src="/static/images/design/logo_xiyouxy.xyz.jpg" alt=""><div class="portfolio__item-caption"><span class="portfolio__item-title">Xiyouxy.xyz</span><span class="portfolio__item-cat">Web and Graphic design</span></div></a></li>
+      
+      
+      </ul></div></section>
+
+
+  <!-- $buying section -->
+  <section class="buying" id="buying">
+    <div class="buying__inner">
+      <h2 class="buying__title">Compres</h2>
+      <p class="buying__descr">compra online</p>
+
+      <div class="buying__member">
+        <img src="/static/images/buying/aliexpress.png" alt="M" />
+        <div class="buying__member-info">
+          <h3 class="buying__member-name">Aliexpress</h3>
+          <span class="buying__member-role">es.aliexpress.com</span>
+          <p class="buying__member-descr">...</p>
+        </div>
+      </div>
+
+
+      <div class="buying__member">
+        <img src="/static/images/buying/jd.png" alt="M" />
+        <div class="buying__member-info">
+          <h3 class="buying__member-name">JD.com</h3>
+          <span class="buying__member-role">global.jd.com</span>
+          <p class="buying__member-descr">...</p>
+        </div>
+      </div>
+
+      <div class="buying__member">
+        <img src="/static/images/buying/taobao.png" alt="M" />
+        <div class="buying__member-info">
+          <h3 class="buying__member-name">taobao.com</h3>
+          <span class="buying__member-role">world.taobao.com</span>
+          <p class="buying__member-descr">...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- $Contact section -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <h2 class="contact__title">Contacte</h2>
+      <p class="contact__descr">Podeu sol·licitar des d'aquí la informació que necessiteu</p>
+
+      <form
+        class="contact__form"
+        id="contactForm"
+        action="https://formspree.io/f/myzpopvg"
+        method="POST"
+      >
+        <input
+          class="contact__form-input"
+          type="text"
+          name="name"
+          placeholder="Nom *"
+          required/>
+        <input
+          class="contact__form-input"
+          type="email"
+          name="email"
+          placeholder="Email *"
+          required/>
+        <input
+          class="contact__form-input"
+          type="tel"
+          name="tel"
+          placeholder="Telèfon"
+          required
+        />
+
+        <select class="contact__form-select" name="service" required>
+<option value="">Tipus de petició *</option> 
+<option value="handmade">Manualitats</option> 
+<option value="workshops">Tallers</option> 
+<option value="design">Disseny web i gràfic</option> 
+<option value="buying">Compres</option> 
+<option value="other">Altres</option>
+        </select>
+
+        <textarea
+          class="contact__form-tarea"
+          name="message"
+          placeholder="Mensajes *"
+          required></textarea>
+
+        <button class="contact__form-submit" type="submit">ENVIAR</button>
+
+        <p
+          id="formStatus"
+          style="color: orange; font-weight: bold; display: none;"
+        >
+   Enviament correcte, gràcies!
+        </p>
+      </form>
+
+      <script>
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const status = document.getElementById("formStatus");
+
+            try {
+              const data = new FormData(form);
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { Accept: "application/json" },
+              });
+
+              if (response.ok) {
+                form.reset();
+                status.style.display = "block";
+                status.textContent = "Enviament correcte, gràcies!";
+                status.style.color = "orange";
+              } else {
+                status.style.display = "block";
+                status.textContent = "L’enviament ha fallat, si us plau torna-ho a provar més tard.";
+                status.style.color = "red";
+              }
+            } catch (error) {
+              status.style.display = "block";
+              status.textContent = "Error de xarxa, si us plau torna-ho a provar més tard.";
+              status.style.color = "red";
+            }
+          });
+      </script>
+
+      <div class="contact__card vcard">
+        <div class="contact__card-item">
+          <div>Edifici Tabaris</div>
+            <div>Av. Balneari 3, Coma-ruga</div>
+          <div>helena.heli@hotmail.com</div>
+          <div>
+            <img src="/static/images/whatapp.png" alt="whatsapp" />
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>

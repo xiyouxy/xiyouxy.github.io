@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | xiyouxy.xyz</title>
+  <meta name="description" content="Page-specific description" />
+  <meta name="keywords" content="Page-specific keywords" />
+  <link rel="shortcut icon" href="/static/images/favicons/favicon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/static/images/favicons/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="/static/images/favicons/apple-touch-icon-precomposed.png" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+  <link rel="stylesheet" href="/static/css/screen.min.css" />
+  <link rel="stylesheet" href="/static/css/custom.min.css" />
+</head>
+<body>
+
+  <!-- $Page header -->
+  <header class="page-header js-header">
+    <div style="width: 110px; float: right;">
+      <a class="lan_nav-link" href="/index.html">ES</a> |
+      <a class="lan_nav-link" href="/en/index.html">EN</a> |
+      <a class="lan_nav-link" href="/cn/index.html">CN</a>
+    </div>
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <h1>xiyouxy.xyz</h1>
+        &nbsp;<span>Cooperació, innovació i benefici mutu</span>
+      </div>
+      <div class="page-header__nav js-nav">
+        <ul>
+          <li><a class="page-header__nav-link js-anchor js-link" href="index.html">Home</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="compres.html">Compres</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link" href="descobreix.html">Descobreix</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#">Contacte</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- $Contact section -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <h2 class="contact__title">Contacte</h2>
+      <p class="contact__descr">Podeu sol·licitar des d'aquí la informació que necessiteu</p>
+
+      <form
+        class="contact__form"
+        id="contactForm"
+        action="https://formspree.io/f/myzpopvg"
+        method="POST"
+      >
+        <input
+          class="contact__form-input"
+          type="text"
+          name="name"
+          placeholder="Nom *"
+          required/>
+        <input
+          class="contact__form-input"
+          type="email"
+          name="email"
+          placeholder="Email *"
+          required/>
+        <input
+          class="contact__form-input"
+          type="tel"
+          name="tel"
+          placeholder="Telèfon"
+          required
+        />
+
+        <select class="contact__form-select" name="service" required>
+<option value="">Tipus de petició *</option> 
+<option value="handmade">Manualitats</option> 
+<option value="workshops">Tallers</option> 
+<option value="design">Disseny web i gràfic</option> 
+<option value="buying">Compres</option> 
+<option value="other">Altres</option>
+        </select>
+
+        <textarea
+          class="contact__form-tarea"
+          name="message"
+          placeholder="Mensajes *"
+          required></textarea>
+
+        <button class="contact__form-submit" type="submit">ENVIAR</button>
+
+        <p
+          id="formStatus"
+          style="color: orange; font-weight: bold; display: none;"
+        >
+   Enviament correcte, gràcies!
+        </p>
+      </form>
+
+      <script>
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const status = document.getElementById("formStatus");
+
+            try {
+              const data = new FormData(form);
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { Accept: "application/json" },
+              });
+
+              if (response.ok) {
+                form.reset();
+                status.style.display = "block";
+                status.textContent = "Enviament correcte, gràcies!";
+                status.style.color = "orange";
+              } else {
+                status.style.display = "block";
+                status.textContent = "L’enviament ha fallat, si us plau torna-ho a provar més tard.";
+                status.style.color = "red";
+              }
+            } catch (error) {
+              status.style.display = "block";
+              status.textContent = "Error de xarxa, si us plau torna-ho a provar més tard.";
+              status.style.color = "red";
+            }
+          });
+      </script>
+
+      <div class="contact__card vcard">
+        <div class="contact__card-item">
+          <div>Edifici Tabaris</div>
+            <div>Av. Balneari 3, Coma-ruga</div>
+          <div>helena.heli@hotmail.com</div>
+          <div>
+            <img src="/static/images/whatapp.png" alt="whatsapp" />
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- $Page footer -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__copyright"
+        >&copy;<span id="currentYear"></span> xiyouxy.xyz</span
+      >
+      <a class="page-footer__gotop js-anchor" href="#home">Go to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <script src="/static/js/body.min.js"></script>
+</body>
+</html>
