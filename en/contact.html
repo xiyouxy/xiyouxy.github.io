@@ -19,6 +19,11 @@
 
   <!-- $Page header -->
   <header class="page-header js-header">
+    <div style="width: 110px; float: right;">
+      <a class="lan_nav-link" href="/cat/index.html">CA</a> |
+      <a class="lan_nav-link" href="/index.html">ES</a> |
+      <a class="lan_nav-link" href="/cn/index.html">CN</a>
+    </div>
     <div class="page-header__inner">
       <div class="page-header__logo">
         <h1>xiyouxy.xyz</h1>
@@ -30,7 +35,7 @@
           <li><a class="page-header__nav-link js-anchor js-link" href="studio.html">Studio</a></li>
           <li><a class="page-header__nav-link js-anchor js-link" href="buying.html">Buying</a></li>
           <li><a class="page-header__nav-link js-anchor js-link" href="discovery.html">Discovery</a></li>
-          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#contact">Contact</a></li>
+          <li><a class="page-header__nav-link js-anchor js-link is-active" href="#">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -86,7 +91,7 @@
           id="formStatus"
           style="color: orange; font-weight: bold; display: none;"
         >
-          提交成功，谢谢！
+        Submission successful, thank you!
         </p>
       </form>
 
@@ -109,16 +114,16 @@
               if (response.ok) {
                 form.reset();
                 status.style.display = "block";
-                status.textContent = "提交成功，谢谢！";
+                status.textContent = "Submission successful, thank you!";
                 status.style.color = "orange";
               } else {
                 status.style.display = "block";
-                status.textContent = "提交失败，请稍后再试。";
+                status.textContent = "Submission failed, please try again later.";
                 status.style.color = "red";
               }
             } catch (error) {
               status.style.display = "block";
-              status.textContent = "网络错误，请稍后重试。";
+              status.textContent = "Network error, please try again later.";
               status.style.color = "red";
             }
           });
@@ -154,7 +159,19 @@
       document.getElementById("currentYear").textContent = new Date().getFullYear();
     });
   </script>
+<script>
+  fetch('common/head.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-head').innerHTML = html);
 
+  fetch('common/header.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-header').innerHTML = html);
+
+  fetch('common/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('common-footer').innerHTML = html);
+</script>
   <script src="/static/js/body.min.js"></script>
 </body>
 </html>
